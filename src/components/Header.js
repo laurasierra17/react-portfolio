@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import NavBar from "./NavBar";
 
 export default function Header() {
     const [currentPage, setCurrentPage] = useState('About');

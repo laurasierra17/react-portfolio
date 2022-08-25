@@ -1,0 +1,35 @@
+import React from "react";
+
+export default function NavBar({ currentPage, handlePageChange }) {
+    return (
+        <ul>
+            {/* About Me Page */}
+            <li>
+                <a
+                    href="about"
+                    onClick={() => handlePageChange('About')}
+                >
+                    About Me
+                </a>
+            </li>
+            {/* Portfolio Page */}
+            <li>
+                <a
+                    href="portfolio"
+                    onClick={() => handlePageChange('Portfolio')}
+                >
+                    Portfolio
+                </a>
+            </li>
+            {/* Contact Page */}
+            <li>
+                <a
+                    href="contact"
+                    onClick={() => handlePageChange('Contact')}
+                >
+                    Contact
+                </a>
+            </li>
+        </ul>
+    )
+}

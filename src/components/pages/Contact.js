@@ -9,6 +9,7 @@ export default function Contact() {
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
+
         setFormInfo({
             ...formInfo,
             [name]: value
@@ -17,6 +18,7 @@ export default function Contact() {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
+
         setFormInfo({
             name: '',
             email: '',
@@ -25,7 +27,15 @@ export default function Contact() {
     }
 
     const handleOnBlur = (e) => {
-        if (!e.target.value) alert("Please type something")
+        if (!e.target.value) alert("Please type something");
+
+        if (e.target.name === 'email') {
+            if (e.target.value && !e.target.value.toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+                alert("Please insert a valid email address");
+                setFormInfo({...formInfo, email: ''});
+                return;
+            }
+        }
     }
 
     return (
@@ -48,7 +58,7 @@ export default function Contact() {
                     name="email"
                     onChange={handleInputChange}
                     onBlur={handleOnBlur}
-                    type="text"
+                    type="email"
                     placeholder="Email"
                     required
                 />

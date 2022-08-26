@@ -6,9 +6,9 @@ export default function Navigation({ currentPage, handlePageChange }) {
             {/* About Me Page */}
             <li className="nav-item">
                 <a
-                    className="nav-link active"
                     href="#about"
                     onClick={() => handlePageChange('About')}
+                    className={currentPage === 'About' ? 'nav-link active' : 'nav-link'}
                 >
                     About Me
                 </a>
@@ -16,9 +16,9 @@ export default function Navigation({ currentPage, handlePageChange }) {
             {/* Portfolio Page */}
             <li className="nav-item">
                 <a
-                    className="nav-link active"
                     href="#portfolio"
                     onClick={() => handlePageChange('Portfolio')}
+                    className={currentPage === 'Portfolio' ? 'nav-link active' : 'nav-link'}
                 >
                     Portfolio
                 </a>
@@ -26,9 +26,9 @@ export default function Navigation({ currentPage, handlePageChange }) {
             {/* Contact Page */}
             <li className="nav-item">
                 <a
-                    className="nav-link active"
                     href="#contact"
                     onClick={() => handlePageChange('Contact')}
+                    className={currentPage === 'Contact' ? 'nav-link active' : 'nav-link'}
                 >
                     Contact
                 </a>
@@ -36,9 +36,10 @@ export default function Navigation({ currentPage, handlePageChange }) {
             {/* Resume*/}
             <li className="nav-item">
                 <a
-                    className="nav-link active"
                     href="./laura_sierra_resume.pdf"
                     download
+                    onClick={() => handlePageChange('About')}
+                    className='nav-link active'
                 >
                     Resume
                 </a>

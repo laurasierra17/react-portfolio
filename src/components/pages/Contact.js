@@ -51,40 +51,49 @@ export default function Contact() {
                 <p>Thank you!</p>
             ) : (
                 <div>
-                    <p>Hola pls leave a message</p>
+                    <h2>Let's connect</h2>
 
                     <form>
-                        <input
-                            value={formInfo.name}
-                            name="name"
-                            onChange={handleInputChange}
-                            onBlur={handleOnBlur}
-                            type="text"
-                            placeholder="Name"
-                            required
-                        />
-                        <span className="name"></span>
-                        <input
-                            value={formInfo.email}
-                            name="email"
-                            onChange={handleInputChange}
-                            onBlur={handleOnBlur}
-                            type="email"
-                            placeholder="Email"
-                            required
-                        />
-                        <span className="email"></span>
-                        <input
-                            value={formInfo.message}
-                            name="message"
-                            onChange={handleInputChange}
-                            onBlur={handleOnBlur}
-                            type="message"
-                            placeholder="Message"
-                            required
-                        />
-                        <span className="message"></span>
-                        <button type="button" onClick={handleFormSubmit}>Submit</button>
+                        <div className="mb-3">
+                            <label className="form-label">Name</label>
+                            <input
+                                className="form-control"
+                                value={formInfo.name}
+                                name="name"
+                                onChange={handleInputChange}
+                                onBlur={handleOnBlur}
+                                type="text"
+                                placeholder="Name"
+                                required
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Email</label>
+                            <input
+                                className="form-control"
+                                value={formInfo.email}
+                                name="email"
+                                onChange={handleInputChange}
+                                onBlur={handleOnBlur}
+                                type="email"
+                                placeholder="Email"
+                                required
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Message</label>
+                            <input
+                                className="form-control"
+                                value={formInfo.message}
+                                name="message"
+                                onChange={handleInputChange}
+                                onBlur={handleOnBlur}
+                                type="message"
+                                placeholder="Message"
+                                required
+                            />
+                        </div>
+                        <button type="submit" className="btn btn-primary" onClick={handleFormSubmit}>Submit</button>
                     </form>
                 </div>
             )}

@@ -18,8 +18,10 @@ function App() {
   return (
     <div>
       <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      {/* Calling renderPage to return a component */}
-      {renderPage()}
+      <div className='container'>
+        {/* Calling renderPage to return a component */}
+        {renderPage()}
+      </div>
       <Footer />
     </div>
   );

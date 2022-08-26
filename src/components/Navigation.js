@@ -2,10 +2,11 @@ import React from "react";
 
 export default function Navigation({ currentPage, handlePageChange }) {
     return (
-        <ul>
+        <ul className="navbar-nav">
             {/* About Me Page */}
-            <li>
+            <li className="nav-item">
                 <a
+                    className="nav-link active"
                     href="#about"
                     onClick={() => handlePageChange('About')}
                 >
@@ -13,8 +14,9 @@ export default function Navigation({ currentPage, handlePageChange }) {
                 </a>
             </li>
             {/* Portfolio Page */}
-            <li>
+            <li className="nav-item">
                 <a
+                    className="nav-link active"
                     href="#portfolio"
                     onClick={() => handlePageChange('Portfolio')}
                 >
@@ -22,8 +24,9 @@ export default function Navigation({ currentPage, handlePageChange }) {
                 </a>
             </li>
             {/* Contact Page */}
-            <li>
+            <li className="nav-item">
                 <a
+                    className="nav-link active"
                     href="#contact"
                     onClick={() => handlePageChange('Contact')}
                 >
@@ -31,8 +34,9 @@ export default function Navigation({ currentPage, handlePageChange }) {
                 </a>
             </li>
             {/* Resume*/}
-            <li>
+            <li className="nav-item">
                 <a
+                    className="nav-link active"
                     href="./laura_sierra_resume.pdf"
                     download
                 >

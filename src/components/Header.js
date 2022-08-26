@@ -1,26 +1,18 @@
-import React, { useState } from "react";
-import About from "./pages/About";
-import Portfolio from "./pages/Portfolio";
-import Contact from "./pages/Contact";
+import React from "react";
 import Navigation from "./Navigation";
 
-export default function Header() {
-    const [currentPage, setCurrentPage] = useState('About');
-
-    const renderPage = () => {
-        if (currentPage === 'About') return <About />;
-        if (currentPage === 'Portfolio') return <Portfolio />;
-        if (currentPage === 'Contact') return <Contact />;
-    };
-
-    const handlePageChange = (page) => setCurrentPage(page);
+export default function Header(props) {
+    const handlePageChange = (page) => props.setCurrentPage(page);
 
     return (
-        <div>
-            {/* Passing the current page and a functio to update it */}
-            <Navigation currentPage={currentPage} handlePageChange={handlePageChange} />
-            {/* Calling renderPage to return a component */}
-            {renderPage()}
-        </div>
+        <nav className="navbar navbar-expand-lg bg-light p-4">
+            <div className="container-fluid">
+                <h1>Laura Sierra</h1>
+                {/* Passing the current page and a functio to update it */}
+                <div className="d-flex">
+                    <Navigation currentPage={props.currentPage} handlePageChange={handlePageChange} />
+                </div>
+            </div>
+        </nav>
     )
 }

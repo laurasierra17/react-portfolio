@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 
 export default function Contact() {
+    // Manages the state for user input
     const [formInfo, setFormInfo] = useState({
         name: '',
         email: '',
         message: ''
     })
+    // Depending on the state of completed, we conditionally render components
     const [completed, setCompleted] = useState(false);
 
+    // Save user input to the formInfo state
     const handleInputChange = (e) => {
         const { name, value } = e.target;
 
@@ -17,6 +20,7 @@ export default function Contact() {
         })
     }
 
+    // As long as every input field is filled, we can successfully submit the form
     const handleFormSubmit = (e) => {
         if (formInfo.name && formInfo.email && formInfo.message) {
             e.preventDefault();
@@ -33,6 +37,7 @@ export default function Contact() {
         }
     }
 
+    // When the user clicks out of an input field while it's empty, prompt them to fill it out
     const handleOnBlur = (e) => {
         if (!e.target.value) alert("Please type something");
 

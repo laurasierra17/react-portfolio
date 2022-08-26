@@ -2,6 +2,8 @@
 
 This portfolio dives a little into my background and includes 6 projects of mine, a resume ready for download, and a contact form! Built using React.
 
+Check it out [here](https://laurasierra17.github.io/react-portfolio/).
+
 ## Screenshots
 ![Landing page](./landing.png)
 

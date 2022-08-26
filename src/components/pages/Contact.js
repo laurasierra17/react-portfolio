@@ -6,6 +6,7 @@ export default function Contact() {
         email: '',
         message: ''
     })
+    const [completed, setCompleted] = useState(false);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -17,13 +18,19 @@ export default function Contact() {
     }
 
     const handleFormSubmit = (e) => {
-        e.preventDefault();
+        if (formInfo.name && formInfo.email && formInfo.message) {
+            e.preventDefault();
+            setCompleted(true);
+    
+            setFormInfo({
+                name: '',
+                email: '',
+                message: ''
+            })
 
-        setFormInfo({
-            name: '',
-            email: '',
-            message: ''
-        })
+        } else {
+            alert("Please fill out the form first");
+        }
     }
 
     const handleOnBlur = (e) => {
@@ -32,7 +39,7 @@ export default function Contact() {
         if (e.target.name === 'email') {
             if (e.target.value && !e.target.value.toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
                 alert("Please insert a valid email address");
-                setFormInfo({...formInfo, email: ''});
+                setFormInfo({ ...formInfo, email: '' });
                 return;
             }
         }
@@ -40,41 +47,47 @@ export default function Contact() {
 
     return (
         <div>
-            <p>Hola pls leave a message</p>
+            {completed ? (
+                <p>Thank you!</p>
+            ) : (
+                <div>
+                    <p>Hola pls leave a message</p>
 
-            <form>
-                <input
-                    value={formInfo.name}
-                    name="name"
-                    onChange={handleInputChange}
-                    onBlur={handleOnBlur}
-                    type="text"
-                    placeholder="Name"
-                    required
-                />
-                <span className="name"></span>
-                <input
-                    value={formInfo.email}
-                    name="email"
-                    onChange={handleInputChange}
-                    onBlur={handleOnBlur}
-                    type="email"
-                    placeholder="Email"
-                    required
-                />
-                <span className="email"></span>
-                <input
-                    value={formInfo.message}
-                    name="message"
-                    onChange={handleInputChange}
-                    onBlur={handleOnBlur}
-                    type="message"
-                    placeholder="Message"
-                    required
-                />
-                <span className="message"></span>
-                <button type="button" onClick={handleFormSubmit}>Submit</button>
-            </form>
+                    <form>
+                        <input
+                            value={formInfo.name}
+                            name="name"
+                            onChange={handleInputChange}
+                            onBlur={handleOnBlur}
+                            type="text"
+                            placeholder="Name"
+                            required
+                        />
+                        <span className="name"></span>
+                        <input
+                            value={formInfo.email}
+                            name="email"
+                            onChange={handleInputChange}
+                            onBlur={handleOnBlur}
+                            type="email"
+                            placeholder="Email"
+                            required
+                        />
+                        <span className="email"></span>
+                        <input
+                            value={formInfo.message}
+                            name="message"
+                            onChange={handleInputChange}
+                            onBlur={handleOnBlur}
+                            type="message"
+                            placeholder="Message"
+                            required
+                        />
+                        <span className="message"></span>
+                        <button type="button" onClick={handleFormSubmit}>Submit</button>
+                    </form>
+                </div>
+            )}
         </div>
     )
 }

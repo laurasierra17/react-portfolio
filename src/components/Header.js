@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import NavBar from "./NavBar";
 import About from "./pages/About";
 import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
+import Navigation from "./Navigation";
 
 export default function Header() {
     const [currentPage, setCurrentPage] = useState('About');
@@ -18,7 +18,7 @@ export default function Header() {
     return (
         <div>
             {/* Passing the current page and a functio to update it */}
-            <NavBar currentPage={currentPage} handlePageChange={handlePageChange} />
+            <Navigation currentPage={currentPage} handlePageChange={handlePageChange} />
             {/* Calling renderPage to return a component */}
             {renderPage()}
         </div>

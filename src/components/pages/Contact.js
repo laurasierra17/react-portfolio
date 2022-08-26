@@ -24,6 +24,10 @@ export default function Contact() {
         })
     }
 
+    const handleOnBlur = (e) => {
+        if (!e.target.value) alert("Please type something")
+    }
+
     return (
         <div>
             <p>Hola pls leave a message</p>
@@ -33,23 +37,32 @@ export default function Contact() {
                     value={formInfo.name}
                     name="name"
                     onChange={handleInputChange}
+                    onBlur={handleOnBlur}
                     type="text"
                     placeholder="Name"
+                    required
                 />
+                <span className="name"></span>
                 <input
                     value={formInfo.email}
                     name="email"
                     onChange={handleInputChange}
+                    onBlur={handleOnBlur}
                     type="text"
                     placeholder="Email"
+                    required
                 />
+                <span className="email"></span>
                 <input
                     value={formInfo.message}
                     name="message"
                     onChange={handleInputChange}
+                    onBlur={handleOnBlur}
                     type="message"
                     placeholder="Message"
+                    required
                 />
+                <span className="message"></span>
                 <button type="button" onClick={handleFormSubmit}>Submit</button>
             </form>
         </div>

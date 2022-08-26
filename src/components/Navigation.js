@@ -30,6 +30,15 @@ export default function Navigation({ currentPage, handlePageChange }) {
                     Contact
                 </a>
             </li>
+            {/* Resume*/}
+            <li>
+                <a
+                    href="./laura_sierra_resume.pdf"
+                    download
+                >
+                    Resume
+                </a>
+            </li>
         </ul>
     )
 }
